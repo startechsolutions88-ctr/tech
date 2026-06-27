@@ -1,39 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>STS SmartCare Live Chat</title>
-    <style>
-        /* Ensures the chat widget completely fills the mobile screen window without weird scrollbars */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: #ffffff; 
-            overflow: hidden; 
-        }
-    </style>
+    
+    <!--  Tidio or Lyro chat script goes below here -->
+    <script src="//code.tidio.co/eydu7mnqfvzdlxbpd7nvlvdvn6aooydi.js" async></script>
 </head>
 <body>
-
-    <script src="//code.tidio.co/eydu7mnqfvzdlxbpd7nvlvdvn6aooydi.js" async></script>
-
-    <script>
-        // Data Safety & Automation Configuration Bridge
-        window.tidioChatApi = {
-            onReady: function() {
-                // Pre-fills a generic placeholder email in the background.
-                // This bypasses the pre-chat email collection card, keeping you compliant with Google Play Data Safety rules.
-                window.tidioChatApi.setVisitorData({
-                    email: "anonymous-app-user@startechsolutions.com"
-                });
-                
-                // Automatically expands the chat frame instantly inside your app's WebView layout
-                window.tidioChatApi.open();
-            }
-        };
-    </script>
+    <!-- Keep this clean so it doesn't display any background text in your app -->
 </body>
 </html>
