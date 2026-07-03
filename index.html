@@ -2,61 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <title>STS SmartCare Live Chat</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Technician Chat</title>
     <style>
-        /* Base page styling to match app layout */
-        body {
+        /* Reset and Base Styles */
+        * {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh; /* Keeps text centered vertically on the screen layout */
-        }
-
-        /* Welcome text container styling */
-        .chat-welcome-container {
-            text-align: center;
-            padding: 20px;
-            max-width: 90%;
             box-sizing: border-box;
         }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Navigation/Header Styles */
+        .app-header {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #0b2265;
+            cursor: pointer;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-title {
+            color: #0b2265;
+            font-size: 20px;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 40px; /* Counter-balance the back arrow spacing for true centering */
+        }
+
+        /* Welcome Text Container Styles */
+        .chat-welcome-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 24px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
         .chat-welcome-container h2 {
-            color: #0b2265; /* Deep blue matching your app header */
-            font-size: 22px;
-            margin-bottom: 12px;
-            font-weight: 600;
+            color: #0b2265;
+            font-size: 24px;
+            font-weight: 700;
             line-height: 1.3;
+            margin-bottom: 16px;
         }
 
         .chat-welcome-container p {
-            color: #4a5568;
+            color: #556080;
             font-size: 16px;
-            margin: 6px 0;
             line-height: 1.5;
+            margin-bottom: 24px;
         }
 
         .chat-welcome-container .instruction {
-            font-weight: 500;
-            color: #1a202c;
-            margin-top: 18px;
+            font-weight: 600;
+            color: #000000;
+            font-size: 16px;
         }
     </style>
+</head>
+<body>
 
-    <!-- Tidio chat script integration -->
-    <script src="//code.tidio.co/eydu7mnqfvzdlxbpd7nvlvdvn6aooydi.js" async></script>
+    <!-- Header Navigation Section -->
+    <header class="app-header">
+        <button class="back-button" onclick="window.history.back();">←</button>
+        <h1 class="header-title">Live Technician Chat</h1>
+    </header>
 
-    <!-- Custom repositioning layout script -->
+    <!-- Main Dynamic Interface Section -->
+    <main class="chat-welcome-container">
+        <h2>Welcome to Star Tech Solutions<br>Live Chat</h2>
+        <p>Ask any question and get answered immediately.</p>
+        <p class="instruction">Click the message icon to chat with us.</p>
+    </main>
+
+    <!-- Embed Tidio Chat Script Code Interface -->
+  <script src="//code.tidio.co/eydu7mnqfvzdlxbpd7nvlvdvn6aooydi.js" async></script>
+
+    <!-- Custom Floating Styles and Sizing for the Tidio Icon -->
     <script>
         function onTidioChatApiReady() {
-            // Repositions the icon to float on the right edge, vertically centered
-            tidioChatApi.adjustStyles('#tidio { bottom: 50% !important; transform: translateY(50%) !important; }');
+            // scale(1.25) enlarges the chat bubble by 25%
+            // bottom: 40px shifts it upwards to comfortably clear device nav keys
+            window.tidioChatApi.adjustStyles('#tidio { bottom: 40px !important; transform: scale(1.25) !important; transform-origin: bottom right !important; }');
         }
 
         if (window.tidioChatApi) {
@@ -65,14 +116,6 @@
             document.addEventListener("tidioChat-ready", onTidioChatApiReady);
         }
     </script>
-</head>
-<body>
-
-    <div class="chat-welcome-container">
-        <h2>Welcome to Star Tech Solutions Live Chat</h2>
-        <p>Ask any question and get answered immediately.</p>
-        <p class="instruction">Click the message icon to chat with us.</p>
-    </div>
 
 </body>
 </html>
