@@ -20,35 +20,6 @@
             min-height: 100vh;
         }
 
-        /* Top Navigation/Header Styles */
-        .app-header {
-            display: flex;
-            align-items: center;
-            padding: 16px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .back-button {
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #0b2265;
-            cursor: pointer;
-            margin-right: 16px;
-            display: flex;
-            align-items: center;
-        }
-
-        .header-title {
-            color: #0b2265;
-            font-size: 20px;
-            font-weight: bold;
-            flex-grow: 1;
-            text-align: center;
-            margin-right: 40px; /* Balance spacing for true centering */
-        }
-
         /* Welcome Text Container Styles */
         .chat-welcome-container {
             flex-grow: 1;
@@ -86,12 +57,7 @@
 </head>
 <body>
 
-    <!-- Header Navigation Section -->
-    <header class="app-header">
-        <button class="back-button" onclick="window.history.back();">←</button>
-
-
-    <!-- Main Dynamic Interface Section -->
+    <!-- Main Dynamic Interface Section (Centered vertically and horizontally) -->
     <main class="chat-welcome-container">
         <h2>Welcome to Star Tech Solutions<br>Live Chat</h2>
         <p>Ask any question and get answered immediately.</p>
@@ -99,7 +65,7 @@
     </main>
 
     <!-- Embed Tidio Chat Script Code Interface -->
-    <script src="//code.tidio.co/eydu7mnqfvzdlxbpd7nvlvdvn6aooydi.js" async></script>
+   <script src="//code.tidio.co/eydu7mnqfvzdlxbpd7nvlvdvn6aooydi.js" async></script>
 
     <!-- Custom Floating Styles, Sizing, and Window Scale for Tidio -->
     <script>
@@ -108,7 +74,6 @@
             window.tidioChatApi.adjustStyles('#tidio { bottom: 40px !important; transform: scale(1.25) !important; transform-origin: bottom right !important; }');
             
             // 2. Expand the actual chat conversation window so it is no longer small
-            // Enforces 90% of screen width and 70% of screen height
             window.tidioChatApi.adjustStyles('#tidio-chat { width: 90vw !important; height: 70vh !important; max-width: 100% !important; max-height: 100% !important; }');
         }
 
